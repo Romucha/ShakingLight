@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using ShakingLight.Services;
 using ShakingLight.ViewModels;
 
 namespace ShakingLight
@@ -17,6 +18,11 @@ namespace ShakingLight
                 });
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<FlashlightService>();
+#if ANDROID
+            builder.Services.AddSingleton<Platforms.Android.Services.ForegroundShakingLightService>();
+            builder.Services.AddSingleton<Platforms.Android.Services.ShakingDetectorService>();
+#endif
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

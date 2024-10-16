@@ -36,6 +36,51 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<AssemblyVersion></AssemblyVersion>
+		<FileVersion></FileVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidKeyStore>False</AndroidKeyStore>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion></ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+	  <AndroidKeyStore>False</AndroidKeyStore>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion></ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion />
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-maccatalyst|AnyCPU'">
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion />
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion />
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion />
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-maccatalyst|AnyCPU'">
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion />
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion />
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -59,6 +104,7 @@
 	<ItemGroup>
 		<PackageReference Include="AathifMahir.Maui.MauiShakeDetector" Version="2.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.10" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.92" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.92" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
