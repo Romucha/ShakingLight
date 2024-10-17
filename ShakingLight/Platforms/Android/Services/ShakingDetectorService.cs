@@ -7,18 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application = Android.App.Application;
+using ShakingLight.Services;
 
 namespace ShakingLight.Platforms.Android.Services
 {
     public class ShakingDetectorService
     {
         private readonly ForegroundShakingLightService foregroundShakingLightService;
+        private readonly FlashlightService flashlightService;
 
         public bool IsListening { get; private set; }
 
-        public ShakingDetectorService(ForegroundShakingLightService foregroundShakingLightService)
+        public ShakingDetectorService(ForegroundShakingLightService foregroundShakingLightService, FlashlightService flashlightService)
         {
             this.foregroundShakingLightService = foregroundShakingLightService;
+            this.flashlightService = flashlightService;
         }
 
         public async Task StartListening()
@@ -38,18 +41,19 @@ namespace ShakingLight.Platforms.Android.Services
             }
         }
 
-        private void Detector_ShakeDetected(object? sender, ShakeDetectedEventArgs e)
+        private async void Detector_ShakeDetected(object? sender, ShakeDetectedEventArgs e)
         {
+            await flashlightService.ToggleFlashlightAsync();
 #if ANDROID
-            Intent intent = new Intent(Application.Context, typeof(ForegroundShakingLightService));
-            if (foregroundShakingLightService.IsServiceRunning())
-            {
-                foregroundShakingLightService.StopService(intent);
-            }
-            else
-            {
-                foregroundShakingLightService.StartService(intent);
-            }
+            //Intent intent = new Intent(Application.Context, typeof(ForegroundShakingLightService));
+            //if (foregroundShakingLightService.IsServiceRunning())
+            //{
+            //    foregroundShakingLightService.StopService(intent);
+            //}
+            //else
+            //{
+            //    foregroundShakingLightService.StartService(intent);
+            //}
 #endif
         }
 
