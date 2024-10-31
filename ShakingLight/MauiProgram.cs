@@ -19,9 +19,9 @@ namespace ShakingLight
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<FlashlightService>();
-#if ANDROID
-            builder.Services.AddSingleton<Platforms.Android.Services.ForegroundShakingLightService>();
-            builder.Services.AddSingleton<Platforms.Android.Services.ShakingDetectorService>();
+#if ANDROID || IOS
+            //builder.Services.AddSingleton<Platforms.Android.Services.ForegroundShakingLightService>();
+            builder.Services.AddSingleton<Services.ShakingDetectorService>();
 #endif
 #if DEBUG
     		builder.Logging.AddDebug();

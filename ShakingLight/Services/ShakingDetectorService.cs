@@ -1,26 +1,21 @@
-﻿using Android.Content;
-using Android.App;
-using MauiShakeDetector;
+﻿using MauiShakeDetector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Application = Android.App.Application;
 using ShakingLight.Services;
 
-namespace ShakingLight.Platforms.Android.Services
+namespace ShakingLight.Services
 {
     public class ShakingDetectorService
     {
-        private readonly ForegroundShakingLightService foregroundShakingLightService;
         private readonly FlashlightService flashlightService;
 
         public bool IsListening { get; private set; }
 
-        public ShakingDetectorService(ForegroundShakingLightService foregroundShakingLightService, FlashlightService flashlightService)
+        public ShakingDetectorService(FlashlightService flashlightService)
         {
-            this.foregroundShakingLightService = foregroundShakingLightService;
             this.flashlightService = flashlightService;
         }
 
@@ -43,18 +38,10 @@ namespace ShakingLight.Platforms.Android.Services
 
         private async void Detector_ShakeDetected(object? sender, ShakeDetectedEventArgs e)
         {
-            await flashlightService.ToggleFlashlightAsync();
-#if ANDROID
-            //Intent intent = new Intent(Application.Context, typeof(ForegroundShakingLightService));
-            //if (foregroundShakingLightService.IsServiceRunning())
-            //{
-            //    foregroundShakingLightService.StopService(intent);
-            //}
-            //else
-            //{
-            //    foregroundShakingLightService.StartService(intent);
-            //}
-#endif
+            if (e.NoOfShakes >= 3)
+            {
+                await flashlightService.ToggleFlashlightAsync();
+            }
         }
 
         public async Task StopListening()

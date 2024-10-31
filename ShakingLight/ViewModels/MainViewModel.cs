@@ -12,8 +12,8 @@ namespace ShakingLight.ViewModels
     public class MainViewModel : ObservableObject
     {
         private readonly FlashlightService flashlightService;
-#if ANDROID
-        private readonly Platforms.Android.Services.ShakingDetectorService shakingService;
+#if ANDROID || IOS
+        private readonly ShakingDetectorService shakingService;
 #endif
 
         private bool isOn;
@@ -27,14 +27,14 @@ namespace ShakingLight.ViewModels
         public IAsyncRelayCommand ToggleFlashlightCommand => new AsyncRelayCommand(ToggleFlashlight);
         
         public MainViewModel(
-#if ANDROID
-            Platforms.Android.Services.ShakingDetectorService shakingService,
+#if ANDROID || IOS
+            ShakingDetectorService shakingService,
 #endif
             FlashlightService flashlightService
             )
         {
             this.flashlightService = flashlightService;
-#if ANDROID
+#if ANDROID || IOS
             this.shakingService = shakingService;
 #endif
         }
@@ -43,7 +43,7 @@ namespace ShakingLight.ViewModels
         {
             try
             {
-#if ANDROID
+#if ANDROID || IOS
                 if (shakingService.IsListening)
                 {
                     await shakingService.StopListening();
