@@ -38,7 +38,7 @@ namespace ShakingLight.Services
 
         private async void Detector_ShakeDetected(object? sender, ShakeDetectedEventArgs e)
         {
-            if (e.NoOfShakes >= 3)
+            if (e.NoOfShakes % 3 == 0)
             {
                 await flashlightService.ToggleFlashlightAsync();
             }

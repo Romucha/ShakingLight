@@ -43,50 +43,50 @@
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
 	  <AndroidPackageFormat>apk</AndroidPackageFormat>
 	  <AndroidKeyStore>False</AndroidKeyStore>
-	  <ApplicationVersion>5</ApplicationVersion>
+	  <ApplicationVersion>6</ApplicationVersion>
 	  <ApplicationDisplayVersion></ApplicationDisplayVersion>
 	  <ApplicationId>romucha.shakinglight</ApplicationId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
 	  <AndroidKeyStore>False</AndroidKeyStore>
-	  <ApplicationVersion>5</ApplicationVersion>
+	  <ApplicationVersion>6</ApplicationVersion>
 	  <ApplicationDisplayVersion></ApplicationDisplayVersion>
 	  <ApplicationId>romucha.shakinglight</ApplicationId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
-	  <ApplicationVersion>5</ApplicationVersion>
+	  <ApplicationVersion>6</ApplicationVersion>
 	  <ApplicationDisplayVersion />
 	  <ApplicationId>romucha.shakinglight</ApplicationId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-maccatalyst|AnyCPU'">
-	  <ApplicationVersion>5</ApplicationVersion>
+	  <ApplicationVersion>6</ApplicationVersion>
 	  <ApplicationDisplayVersion />
 	  <ApplicationId>romucha.shakinglight</ApplicationId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
-	  <ApplicationVersion>5</ApplicationVersion>
+	  <ApplicationVersion>6</ApplicationVersion>
 	  <ApplicationDisplayVersion />
 	  <ApplicationId>romucha.shakinglight</ApplicationId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
-	  <ApplicationVersion>5</ApplicationVersion>
+	  <ApplicationVersion>6</ApplicationVersion>
 	  <ApplicationDisplayVersion />
 	  <ApplicationId>romucha.shakinglight</ApplicationId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-maccatalyst|AnyCPU'">
-	  <ApplicationVersion>5</ApplicationVersion>
+	  <ApplicationVersion>6</ApplicationVersion>
 	  <ApplicationDisplayVersion />
 	  <ApplicationId>romucha.shakinglight</ApplicationId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
-	  <ApplicationVersion>5</ApplicationVersion>
+	  <ApplicationVersion>6</ApplicationVersion>
 	  <ApplicationDisplayVersion />
 	  <ApplicationId>romucha.shakinglight</ApplicationId>
 	</PropertyGroup>
